@@ -1,2 +1,2 @@
-# Projeto 1
+# Management Web Application for a gym
 
