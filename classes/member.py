@@ -8,6 +8,6 @@ class Member:
         self.phone = phone
         self.email = email
         self.plan_type = plan_type
-        self.begin_Date = begin_date
+        self.begin_date = begin_date
         self.active = active
         self.id = id
