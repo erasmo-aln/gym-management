@@ -18,17 +18,17 @@ def get_all():
             birth_date=row['birth_date'],
             address=row['address'],
             phone=row['phone'],
-            id=row['id'])
+            id_=row['id_'])
 
         instructor_list.append(instructor)
 
     return instructor_list
 
 
-def get_one(instructor_id):
+def get_one(id_):
 
     sql = 'SELECT * FROM webuser.TB_INSTRUCTOR WHERE id = %s;'
-    value = [instructor_id]
+    value = [id_]
 
     result = run_sql(sql, value)[0]
 
@@ -39,17 +39,17 @@ def get_one(instructor_id):
             birth_date=result['birth_date'],
             address=result['address'],
             phone=result['phone'],
-            id=result['id'])
+            id_=result['id_'])
 
     return instructor
 
 
-def get_activities(instructor_id):
+def get_activities(id_):
 
     activity_list = list()
 
     sql = 'SELECT * FROM webuser.TB_ACTIVITY WHERE instructor = %s;'
-    value = [instructor_id]
+    value = [id_]
 
     results = run_sql(sql, value)
 
@@ -62,7 +62,7 @@ def get_activities(instructor_id):
             capacity=row['capacity'],
             plan_type=row['plan_type'],
             active=row['active'],
-            id=row['id'])
+            id_=row['id_'])
 
         activity_list.append(activity)
 
@@ -76,20 +76,20 @@ def new(instructor):
 
     result = run_sql(sql, values)[0]
 
-    instructor.id = result['id']
+    instructor.id_ = result['id_']
 
     return instructor
 
 
-def delete_one(instructor_id):
+def delete_one(id_):
 
     sql = 'DELETE FROM webuser.TB_INSTRUCTOR WHERE id = %s;'
-    value = [instructor_id]
+    value = [id_]
     run_sql(sql, value)
 
 
 def edit(instructor):
 
     sql = 'UPDATE webuser.TB_INSTRUCTOR SET (name, lastname, birht_date, address, phone) = (%s, %s, %s, %s, %s) WHERE id = %s;'
-    values = [instructor.name, instructor.lastname, instructor.birth_date, instructor.address, instructor.phone, instructor.id]
+    values = [instructor.name, instructor.lastname, instructor.birth_date, instructor.address, instructor.phone, instructor.id_]
     run_sql(sql, values)
