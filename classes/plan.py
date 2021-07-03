@@ -1,4 +1,4 @@
-class PlanType:
+class PaymentPlan:
 
     def __init__(self, plan, id_=None):
         self.plan = plan
