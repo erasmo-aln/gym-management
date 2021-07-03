@@ -1,6 +1,7 @@
 from classes.instructor import Instructor
-from database.run_sql import run_sql
 from classes.activity import Activity
+
+from database.run_sql import run_sql
 
 
 def get_all():
