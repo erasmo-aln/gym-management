@@ -123,10 +123,9 @@ def get_one(id_):
     sql = 'SELECT * FROM webuser.TB_ACTIVITY WHERE id = %s AND active = true;'
     value = [id_]
 
-    result = run_sql(sql=sql, values=value)
+    result = run_sql(sql=sql, values=value)[0]
 
     if result is not None:
-        result = result[0]
 
         plan_type = plan.get_one(result['plan_type'])
 
