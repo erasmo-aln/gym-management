@@ -24,10 +24,10 @@ def get_all():
     return instructor_list
 
 
-def get_one(id):
+def get_one(instructor_id):
 
     sql = 'SELECT * FROM webuser.TB_INSTRUCTOR WHERE id = %s;'
-    value = [id]
+    value = [instructor_id]
 
     result = run_sql(sql, value)[0]
 
@@ -80,10 +80,10 @@ def new(instructor):
     return instructor
 
 
-def delete_one(id):
+def delete_one(instructor_id):
 
     sql = 'DELETE FROM webuser.TB_INSTRUCTOR WHERE id = %s;'
-    value = [id]
+    value = [instructor_id]
     run_sql(sql, value)
 
 
