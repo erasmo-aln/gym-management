@@ -1,7 +1,7 @@
 import os
 import psycopg2
 import psycopg2.extras as ext
-import db_credentials as creds
+from database import db_credentials as creds
 
 
 def run_sql(sql, values=None):
