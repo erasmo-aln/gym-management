@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <script src="https://kit.fontawesome.com/3b9a04f840.js" crossorigin="anonymous"></script>
+    <title>{{title}} | Gym Management Application</title>
+</head>
+
+
+<header>
+    <hgroup id="header">
+        <span>Gym Management Application</span>
+    </hgroup>
+
+    <nav class="navbar">
+        <a id="home" href="/">Home</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">Members</button>
+            <div class="dropdown-content">
+                <a href="/members">View Members</a>
+                <a href="/members/register">Register Member</a>
+                <a href="/members/inactive">Deactivate Member</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Activities</button>
+            <div class="dropdown-content">
+                <a href="/activities">View Activities</a>
+                <a href="/activities/register">Register Activity</a>
+                <a href="/activities/inactive">Deactivate Activity</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Instructors</button>
+            <div class="dropdown-content">
+                <a href="/instructors">View Insctructors</a>
+                <a href="/instructors/register">Register Instructor</a>
+            </div>
+        </div>
+
+    </nav>
+</header>
+
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+
+<footer class="footer">
+    <p>
+        Here is the footer
+    </p>
+</footer>
+
+</html>
