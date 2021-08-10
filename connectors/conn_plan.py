@@ -10,7 +10,7 @@ def get_all():
     results = run_sql(sql=sql, values=None)
 
     for row in results:
-        plan_type = PlanType(row['plan'], row['id_'])
+        plan_type = PlanType(row['plan'], row['id'])
         plan_type_list.append(plan_type)
 
     return plan_type_list
@@ -34,7 +34,7 @@ def new(plan_type):
 
     result = run_sql(sql, values)[0]
 
-    plan_type.id_ = result['id_']
+    plan_type.id_ = result['id']
 
     return plan_type
 
