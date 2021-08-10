@@ -25,7 +25,7 @@ def get_all():
             capacity=row['capacity'],
             plan_type=plan_type,
             active=row['active'],
-            id_=row['id_'])
+            id_=row['id'])
 
         activity_list.append(activity)
 
@@ -56,7 +56,7 @@ def get_members(id_):
             plan_type=row['plan_type'],
             begin_date=row['begin_date'],
             active=row['active'],
-            id_=row['id_'])
+            id_=row['id'])
 
         member_list.append(member)
 
@@ -83,7 +83,7 @@ def get_all_active():
             capacity=row['capacity'],
             plan_type=plan_type,
             active=row['active'],
-            id_=row['id_'])
+            id_=row['id'])
 
         activity_list.append(activity)
 
@@ -110,7 +110,7 @@ def get_all_inactive():
             capacity=row['capacity'],
             plan_type=plan_type,
             active=row['active'],
-            id_=row['id_'])
+            id_=row['id'])
 
         activity_list.append(activity)
 
@@ -137,7 +137,7 @@ def get_one(id_):
             capacity=result['capacity'],
             plan_type=plan_type,
             active=result['active'],
-            id_=result['id_'])
+            id_=result['id'])
 
         return activity
 
@@ -151,7 +151,7 @@ def new(activity):
 
     result = run_sql(sql=sql, values=values)[0]
 
-    activity.id_ = result['id_']
+    activity.id_ = result['id']
 
     return activity
 
