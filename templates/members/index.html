@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="flexcards">
+
+    <div class="add-card">
+        <span></span>
+        <a href="/members/new"></a>
+    </div>
+
+    {% for member in members %}
+    <div class="card">
+
+        <img id="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+        <h4 id="name"><b>{{member.name}} {{member.lastname}}</b></h4>
+        <h5>Member ID: {{member.id_}}</h5>
+        <h5>{{member.plan_type.plan}}</h5>
+
+        <hr>
+        <p>
+            <a class="card-btn" href="members/{{members.id}}">Details</a>
+        </p>
+
+        <hr>
+        <p>
+            <a class="card-btn" href="schedules/new/member/{{member.id}}">Schedule</a>
+        </p>
+
+        <hr>
+        <p>
+            <a class="card-btn" href="members/{{member.id}}/edit">Edit</a>
+        </p>
+
+        <hr>
+        <p>
+            <a class="card-btn" href="members/{{member.id}}/delete">Delete</a>
+        </p>
+        <hr>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
