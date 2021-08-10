@@ -18,7 +18,7 @@ def get_all():
             birth_date=row['birth_date'],
             address=row['address'],
             phone=row['phone'],
-            id_=row['id_'])
+            id_=row['id'])
 
         instructor_list.append(instructor)
 
@@ -39,7 +39,7 @@ def get_one(id_):
             birth_date=result['birth_date'],
             address=result['address'],
             phone=result['phone'],
-            id_=result['id_'])
+            id_=result['id'])
 
     return instructor
 
@@ -62,7 +62,7 @@ def get_activities(id_):
             capacity=row['capacity'],
             plan_type=row['plan_type'],
             active=row['active'],
-            id_=row['id_'])
+            id_=row['id'])
 
         activity_list.append(activity)
 
@@ -76,7 +76,7 @@ def new(instructor):
 
     result = run_sql(sql, values)[0]
 
-    instructor.id_ = result['id_']
+    instructor.id_ = result['id']
 
     return instructor
 
