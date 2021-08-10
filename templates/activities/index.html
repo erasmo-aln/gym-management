@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="flexcards">
+
+    <div class="add-card">
+        <a href="/activities/new"></a>
+    </div>
+
+    {% for activity in activities %}
+    <div class="card">
+        <img id="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+        <h4 id="name"><b>{{activity.name}}</b></h4>
+        <h5>{{activity.date.strftime("%d/%m/%Y")}}</h5>
+        <h5>{{activity.date.strftime("%X")}}</h5>
+        <h5>{{activity.plan_type.plan}}</h5>
+        <hr>
+
+        <p>
+            <a class="card-btn" href="/activities/{{activity.id}}">Details</a>
+        </p>
+        <hr>
+
+        <p>
+            <a class="card-btn" href="/schedule/new/{{activity.id}}">Schedule</a>
+        </p>
+        <hr>
+
+        <p>
+            <a class="card-btn" href="/activities/{{activity.id}}/edit">Edit</a>
+        </p>
+        <hr>
+
+        <p>
+            <a class="card-btn" href="/activities/{{activity.id}}/delete">Delete</a>
+        </p>
+        <hr>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
