@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="flexcards-home">
+
+    <div class="card-home">
+        <a href="/members">
+            <div>
+                <img id="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+                <h1 id="name"><b>Members</b></h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="card-home">
+        <a href="/activities">
+            <div>
+                <img id="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+                <h1 id="name"><b>Activities</b></h1>
+            </div>
+        </a>
+    </div>
+
+    <div class="card-home">
+        <a href="/instructors">
+            <div>
+                <img id="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+                <h1 id="name"><b>Instructors</b></h1>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

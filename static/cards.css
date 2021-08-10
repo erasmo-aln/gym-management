@@ -1,0 +1,45 @@
+.flexcards {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 40px;
+    color: #910a37;
+    font-family:'Segoe UI', sans-serif;
+}
+
+.flexcards-home {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 40px;
+    color: #910a37;
+    font-family: 'Segoe UI', sans-serif;
+    justify-content: space-between;
+}
+
+.card-home {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 10px;
+    width: 300px;
+    height: 400px;
+    padding: 2px 16px;
+    color: #910a37;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-home a {
+    color: #910a37;
+}
+
+.card-home:hover {
+    box-shadow: 0 9px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+    padding: 20px;
+}
