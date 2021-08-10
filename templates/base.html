@@ -8,7 +8,7 @@
     <title>{{title}} | Gym Management Application</title>
 </head>
 
-
+<div id="page-container">
 <header>
     <hgroup id="header">
         <span>Gym Management Application</span>
@@ -46,15 +46,16 @@
     </nav>
 </header>
 
+<div id="body">
 <body>
     {% block content %}
     {% endblock %}
 </body>
+</div>
 
-<footer class="footer">
-    <p>
-        Here is the footer
-    </p>
-</footer>
+<div id="footer">
+<footer id="footer"><p>Here is the footer.</p></footer>
+</div>
+</div>
 
 </html>
