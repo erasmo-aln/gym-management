@@ -23,7 +23,7 @@ def get_one(id_):
     result = run_sql(sql, value)[0]
 
     if result is not None:
-        plan_type = PlanType(result['plan'], result['id_'])
+        plan_type = PlanType(result['plan'], result['id'])
 
     return plan_type
 

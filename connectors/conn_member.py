@@ -27,7 +27,7 @@ def get_all():
             plan_type=plan_type,
             begin_date=row['begin_date'],
             active=row['active'],
-            id_=row['id_'])
+            id_=row['id'])
 
         member_list.append(member)
 
@@ -55,7 +55,7 @@ def get_one(id_):
             plan_type=plan_type,
             begin_date=result['begin_date'],
             active=result['active'],
-            id_=result['id_'])
+            id_=result['id'])
 
         return member
 
@@ -116,7 +116,7 @@ def get_all_active():
             plan_type=plan_type,
             begin_date=row['begin_date'],
             active=row['active'],
-            id_=row['id_'])
+            id_=row['id'])
 
         member_list.append(member)
 
@@ -144,7 +144,7 @@ def get_all_inactive():
             plan_type=plan_type,
             begin_date=row['begin_date'],
             active=row['active'],
-            id_=row['id_'])
+            id_=row['id'])
 
         member_list.append(member)
     return
