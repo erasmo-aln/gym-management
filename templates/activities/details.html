@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="show-details">
+    <hgroup class="details-header">
+        <h3>Name: {{activity.name}}</h3>
+        <h4>Instructor: {{instructor.name}} {{instructor.lastname}}</h4>
+    </hgroup>
+
+    <section class="details-body">
+        <hgroup>
+            <h4>Date: {{activity.date.strftime("%d/%m/%Y")}}</h4>
+            <h4>Duration: {{activity.duration}}</h4>
+            <h4>Capacity: {{activity.capacity}}</h4>
+            <h4>Currently Booked: {{members_booked}}</h4>
+            <h4>Plan: {{plan_type.plan}}</h4>
+            <h4>Active: {% if activity.active %} Yes {% else %} No {% endif %}</h4>
+        </hgroup>
+        <hr>
+
+        <h4>Booked Members:</h4>
+        <ul>
+            {% for member in members %}
+
+            <li>
+                <a href="/members/{{member.id_}}">{{member.name}} {{member.lastname}}</a>
+                <a class="del-btn" href="/schedule/delete/activity/{{member.id_}}/{{activity.id_}}">Delete</a>
+            </li>
+
+            {% endfor %}
+        </ul>
+        <hr>
+
+        <p id="list-links">
+            <a class="card-btn" href="activities/{{activity.id_}}/edit">Edit Activity Details</a>
+        </p>
+        <hr>
+
+        <p>
+            <a class="card-btn" href="/schedule/new/activity/{{activity.id_}}">Schedule</a>
+        </p>
+    </section>
+</section>
+
+{% endblock content %}
