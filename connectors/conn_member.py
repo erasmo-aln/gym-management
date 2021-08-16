@@ -87,7 +87,7 @@ def get_activities(id_):
             capacity=row['capacity'],
             plan_type=plan_type,
             active=row['active'],
-            id_=row['id'])
+            id_=row['activity'])
 
         activity_list.append(activity)
 
