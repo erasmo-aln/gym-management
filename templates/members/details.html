@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class='show-details'>
+
+    <hgroup class="details-header">
+        <h3>Name: {{member.name}} {{member.lastname}}</h3>
+        <h3>Member ID: {{member.id_}}</h3>
+    </hgroup>
+
+    <section class="details-body">
+        <hgroup>
+            <h4>Address: {{member.address}}</h4>
+            <h4>Phone: {{member.phone}}</h4>
+            <h4>E-mail: {{member.email}}</h4>
+            <h4>Birth Date: {{member.birth_date}}</h4>
+        </hgroup>
+        <hr>
+
+        <hgroup>
+            <h4>Plan: {{plan_type.plan}}</h4>
+            <h4>Begin Date: {{member.begin_date.strftime("%d/%m/%Y")}}</h4>
+            <h4>Status: {% if member.active %} Active {% else %} Inactive {% endif %}</h4>
+        </hgroup>
+        <hr>
+
+        <h4>Scheduled Activities:</h4>
+        <ul>
+            {% for activity in activities %}
+
+            <li>
+                <a href="/activities/{{activity.id_}}">{{activity.name}} - {{activity.date.strftime("%d/%m/%Y")}} - {{activity.date.strftime("%I:%M %p")}}</a>
+                <a class="del-btn" href="/schedule/delete/members/{{member.id_}}/{{activity.id_}}">Delete Schedule</a>
+            </li>
+
+            {% endfor %}
+        </ul>
+        <hr>
+
+        <p>
+            <a class="card-btn" href="/members/{{member.id_}}/edit">Edit Details</a>
+        </p>
+        <hr>
+
+        <p>
+            <a class="card-btn" href="/schedule/new/member/{{member.id_}}">Schedule</a>
+        </p>
+    </section>
+
+</section>
+
+{% endblock content %}
