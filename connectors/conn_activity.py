@@ -40,7 +40,7 @@ def get_members(id_):
     sql = (
         'SELECT webuser.TB_MEMBER.* '
         'FROM webuser.TB_MEMBER INNER JOIN webuser.TB_SCHEDULE ON webuser.TB_SCHEDULE.member = webuser.TB_MEMBER.id '
-        'WHERE webuser.TB_ACTIVITY = %s;')
+        'WHERE webuser.TB_SCHEDULE.activity = %s;')
     value = [id_]
 
     result_list = run_sql(sql=sql, values=value)
