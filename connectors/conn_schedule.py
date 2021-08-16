@@ -48,20 +48,20 @@ def schedule_exists(activity, member):
 
     if len(result_list) == 0:
         return False
-    else:
-        return True
+
+    return True
 
 
-def new(schedule):
+def new(scheduler):
 
-    sql = 'INSERT INTO webuser.TB_SCHEDULE (activity, member) VALUES (%s, %s) RETURNING *;'
-    values = [schedule.activity, schedule.member]
+    sql = "INSERT INTO webuser.TB_SCHEDULE (activity, member) VALUES (%s, %s) RETURNING *;"
+    values = [scheduler.activity.id_, scheduler.member.id_]
 
-    result = run_sql(sql=sql, values=values)[0]
+    result = run_sql(sql=sql, values=values)
 
-    schedule.id_ = result['id']
+    scheduler.id_ = result[0]['id']
 
-    return schedule
+    return scheduler
 
 
 def delete_by_id(id_):
