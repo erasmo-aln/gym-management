@@ -48,3 +48,11 @@ def create_schedule_from_member():
         connector_schedule.new(new_schedule)
         member_page = "/members/" + member_id
         return redirect(member_page)
+
+
+# Route to delete an scheduled activity from an specific member
+@schedule_blueprint.route("/schedule/delete/members/<member_id>/<activity_id>")
+def delete_scheduled_activity(member_id, activity_id):
+    connector_schedule.delete_schedule(member_id, activity_id)
+    schedule_page = "/members/" + member_id
+    return redirect(schedule_page)
