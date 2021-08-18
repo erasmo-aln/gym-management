@@ -120,7 +120,7 @@ def get_all_inactive():
 # Get an activity given its id
 def get_one(id_):
 
-    sql = 'SELECT * FROM webuser.TB_ACTIVITY WHERE id = %s AND active = true;'
+    sql = 'SELECT * FROM webuser.TB_ACTIVITY WHERE id = %s;'
     value = [id_]
 
     result = run_sql(sql=sql, values=value)[0]
