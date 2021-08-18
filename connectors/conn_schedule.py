@@ -72,7 +72,7 @@ def delete_by_id(id_):
     run_sql(sql=sql, values=value)
 
 
-def delete_schedule(activity, member):
+def delete_schedule(member, activity):
 
     sql = 'DELETE FROM webuser.TB_SCHEDULE WHERE activity = %s AND member = %s;'
     values = [activity, member]
