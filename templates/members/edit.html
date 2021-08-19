@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="form" action="/members/{{member.id_}}" method="POST">
+    <h1>New Member</h1>
+
+    <label for="name">Name:</label>
+    <input name="name" id="name" placeholder="Name" type="text" value="{{member.name}}" required autofocus><br>
+
+    <label for="lastname">Last Name:</label>
+    <input name="lastname" id="lastname" placeholder="Last Name" type="text" value="{{member.lastname}}" required><br>
+
+    <label for="birth_date">Birth Date:</label>
+    <input name="birth_date" id="birth_date" placeholder="Birth Date" type="date" value="{{member.birth_date}}" required><br>
+
+    <label for="email">E-mail:</label>
+    <input name="email" id="email" placeholder="E-mail" type="text" value="{{member.email}}" required><br>
+
+    <label for="phone">Phone:</label>
+    <input name="phone" id="phone" placeholder="Phone" type="text" value="{{member.phone}}" required><br>
+
+    <label for="address">Adress:</label>
+    <input name="address" id="address" placeholder="Address" type="textarea" value="{{member.address}}" required><br>
+
+    <label for="plan_type">Plan:</label>
+    <select name="plan_type" id="plan_type">
+        {% for plan in plans %}
+            <option value="{{plan.id_}}" {% if member.plan_type.id_ == plan.id_ %} selected="selected" {% endif %}>{{plan.plan}}</option>
+        {% endfor %}
+    </select><br>
+
+    <label for="begin_date">Begin Date:</label>
+    <input name="begin_date" id="begin_date" type="date" value="{{member.begin_date}}" required><br>
+
+    <label for="active">Active Member:</label>
+    <select name="active" id="active">
+        <option value="True" {% if member.active %} selected="selected" {% endif %}>Yes</option>
+        <option value="False" {% if not member.active %} selected="selected" {% endif %}>No</option>
+    </select><br>
+
+    <button type="submit">Update Member</button>
+</form>
+
+{% endblock content %}
