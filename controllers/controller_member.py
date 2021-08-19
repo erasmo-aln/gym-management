@@ -26,3 +26,28 @@ def show_details(id_):
     return render_template("members/details.html", member=member, plan_type=plan_type, activities=activities, title="Show Details")
 
 
+# Route to edit member's data
+@members_blueprint.route("/members/<id_>/edit")
+def edit_member(id_):
+    member = connector_member.get_one(id_)
+    plans = connector_plan.get_all()
+    return render_template("/members/edit.html", member=member, plans=plans, title="Edit Member's Details")
+
+
+# Route to the POST edit
+@members_blueprint.route("/members/<id_>", methods=["POST"])
+def update_member(id_):
+    name = request.form["name"]
+    lastname = request.form['lastname']
+    birth_date = request.form['birth_date']
+    email = request.form['email']
+    phone = request.form['phone']
+    address = request.form['address']
+    plan_type = request.form['plan_type']
+    begin_date = request.form['begin_date']
+    active = request.form['active']
+    plan = connector_plan.get_one(plan_type)
+
+    updated_member = Member(name, lastname, birth_date, address, phone, email, plan.id_, begin_date, active, id_)
+    connector_member.edit(updated_member)
+    return redirect("/members")
