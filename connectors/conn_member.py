@@ -154,7 +154,7 @@ def get_all_inactive():
 def new(member):
 
     sql = 'INSERT INTO webuser.TB_MEMBER (name, lastname, birth_date, address, phone, email, plan_type, begin_date, active) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *;'
-    values = [member.name, member.lastname, member.birth_date, member.address, member.phone, member.email, member.plan_type, member.begin_date, member.active]
+    values = [member.name, member.lastname, member.birth_date, member.address, member.phone, member.email, member.plan_type.id_, member.begin_date, member.active]
 
     result = run_sql(sql=sql, values=values)[0]
 
