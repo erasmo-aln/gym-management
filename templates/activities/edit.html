@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="form" action="/activities/{{activity.id_}}" method="POST">
+    <h1>Edit Activity</h1>
+
+    <label for="name">Activity:</label>
+    <input name="name" id="name" placeholder="Activity" type="text" value="{{activity.name}}" required autofocus>
+
+    <label for="instructor">Instructor:</label>
+    <select id="instructor" name="instructor">
+        {% for instructor in instructors %}
+            <option value="{{instructor.id_}}" {% if activity.instructor == instructor.id_ %} selected="selected" {% endif %}>{{instructor.name}} {{instructor.lastname}}</option>
+        {% endfor %}
+    </select>
+
+    <label for="date">Date:</label>
+    <input name="date" id="date" placeholder="Date" type="date" value="{{activity.date.strftime('%d/%m/%Y')}}" required>
+
+    <label for="duration">Duration:</label>
+    <input name="duration" id="duration" placeholder="Duration" type="text" value="{{activity.duration}}" required>
+
+    <label for="capacity">Capacity:</label>
+    <input name="capacity" id="capacity" placeholder="Capacity" type="text" value="{{activity.capacity}}" required>
+
+    <label for="plan">Plan:</label>
+    <select id="plan" name="plan">
+        {% for plan in plans %}
+            <option value="{{plan.id_}}" {% if activity.plan_type.id_ == plan.id_ %} selected="selected" {% endif %}>{{plan.plan}}</option>
+        {% endfor %}
+    </select>
+
+    <label for="active">Active:</label>
+    <select name="active" id="active">
+        <option value="True">Yes</option>
+        <option value="False">No</option>
+    </select>
+
+    <button type="submit">Update Activity</button>
+</form>
+
+{% endblock content %}
